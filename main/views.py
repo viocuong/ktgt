@@ -10,3 +10,5 @@ import os
 def home(request):
     os.system("cd static_cdn && touch ttt.cpp")
     return HttpResponse(BASE_DIR)    
+def index(request):
+    return render(request,'app/home.html')
