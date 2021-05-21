@@ -2,9 +2,9 @@
 {% load static %}
 {% block content %}
 <div class="container bg-light rounded mt-5 pt-5">
-    <h1 style="color:#4d375d;" class="d-flex justify-content-center p-5">Giấu tin trong audio</h1>
-    <div class="container">
-        <a href="{% static 'audio' %}/{{file_name}}"></a>
+    <h1 style="color:#4d375d;" class="d-flex justify-content-center p-5">Sử dụng {{tool_name}}</h1>
+    <div class="d-flex mb-5 pb-5 justify-content-center">
+        <span style="font-size:20px;color:#fa7f72" class="mr-3">{{file_name}}</span><a href="{{url}}"><i style="font-size:20px;" class="fas fa-download"></i></a>
     </div>
 </div>
 {% endblock content %}

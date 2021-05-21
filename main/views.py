@@ -14,14 +14,17 @@ def home(request):
     return HttpResponse(BASE_DIR)    
 def index(request):
     if request.method == 'POST':
+        file = File()
         form = SForm(request.POST,request.FILES)
         if form.is_valid():
             data = form.cleaned_data
-            file = File()
+            
             file.set_data(data['message'],request.FILES['audio'])
             file.save()
         return render(request,'app/result.html',{
-            'file_name':'cafe2.jpg'
+            'tool_name':'mp3stego',
+            'file_name':file.audio.name,
+            'url':file.audio.url
         })
     form = SForm()
     return render(request,'app/home.html',{'form':form})
