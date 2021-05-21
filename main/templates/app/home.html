@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container bg-light rounded mt-5 pt-5">
     <h1 style="color:#4d375d;" class="d-flex justify-content-center p-5">Giấu tin trong audio</h1>
-    <div class="container">
+    <div class="container p-5">
         <form class="" action="{% url 'main:index' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{form|crispy}}

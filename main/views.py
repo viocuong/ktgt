@@ -18,7 +18,7 @@ def index(request):
         if form.is_valid():
             data = form.cleaned_data
             file = File()
-            file.set_data(data['content'],request.FILES['audio'])
+            file.set_data(data['message'],request.FILES['audio'])
             file.save()
         return render(request,'app/result.html',{
             'file_name':'cafe2.jpg'
