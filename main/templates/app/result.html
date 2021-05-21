@@ -1,0 +1,11 @@
+{% extends 'app/header.html' %}
+{% load static %}
+{% block content %}
+<div class="container bg-light rounded mt-5 pt-5">
+    <h1 style="color:#4d375d;" class="d-flex justify-content-center p-5">Giấu tin trong audio</h1>
+    <div class="container">
+        <a href="{% static 'audio' %}/{{file_name}}"></a>
+    </div>
+</div>
+{% endblock content %}
+
