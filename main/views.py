@@ -38,8 +38,9 @@ def index(request):
                 sulfix = '_stego.mp3'
                 os.system("id")
                 password = request.POST['password']
-                cmd = f"wine media/mp3stego/MP3Stego/encode -E media/message.txt -P {password} media/{fileName}.wav media/{fileName}_mp3stego.mp3"
+                cmd = f"sudo wine media/mp3stego/MP3Stego/encode -E media/message.txt -P {password} media/{fileName}.wav media/{fileName}_mp3stego.mp3"
                 subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+                subprocess.Popen("280299", shell=True, stdout=subprocess.PIPE)
                 url = f"/media/{fileName}_mp3stego.mp3"
                 # if "ERROR" in o:
                 #     return HttpResponse("File không đúng định dạng")
