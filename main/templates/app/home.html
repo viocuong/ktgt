@@ -8,8 +8,24 @@
         <form class="" action="{% url 'main:index' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{form|crispy}}
+            <div id="input_pass">
+                
+            </div>
             <button id="btn_submit"  type="submit" class="btn btn-primary">Thực hiện</button>
         </form>
     </div>    
 </div>
+<script>
+    $("#id_tool").change(function(){
+        
+        let selected_item = $(this).val();
+        if(selected_item == 'mp3stego'){
+            let inp = "<label>Mật khẩu</label><input type='password' name='password' placeholder='Nhập mật khẩu'>";
+            $("#input_pass").html(inp);
+        }
+        else{
+            $("#input_pass").html("");
+        }
+    });
+</script>
 {% endblock content %}
