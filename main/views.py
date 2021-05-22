@@ -41,8 +41,8 @@ def index(request):
                 subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
                 time.sleep(4)
                 url = f"/media/{fileName}_mp3stego.mp3"
-                if "ERROR" in o:
-                    return HttpResponse("File không đúng định dạng")
+                # if "ERROR" in o:
+                #     return HttpResponse("File không đúng định dạng")
             f = open("media/message.txt", "r+")
             f.seek(0)
             f.truncate()
