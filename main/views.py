@@ -38,6 +38,7 @@ def index(request):
                 password = request.POST['password']
                 cmd = f"wine media/mp3stego/MP3Stego/encode -E media/message.txt -P {password} media/{fileName}.wav media/{fileName}_mp3stego.mp3"
                 o = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
+                return HttpResponse(o)
                 url = f"/media/{fileName}_mp3stego.mp3"
                 if "ERROR" in o:
                     return HttpResponse("File không đúng định dạng")
