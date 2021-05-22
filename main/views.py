@@ -37,9 +37,8 @@ def index(request):
             elif tool == 'mp3stego':
                 sulfix = '_stego.mp3'
                 password = request.POST['password']
-                cmd = f"wine media/mp3stego/MP3Stego/encode -E media/message.txt -P {password} media/{fileName}.wav media/{fileName}_mp3stego.mp3"
+                cmd = f"touch tttt3.txt"#wine media/mp3stego/MP3Stego/encode -E media/message.txt -P {password} media/{fileName}.wav media/{fileName}_mp3stego.mp3
                 subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-                time.sleep(4)
                 url = f"/media/{fileName}_mp3stego.mp3"
                 # if "ERROR" in o:
                 #     return HttpResponse("File không đúng định dạng")
