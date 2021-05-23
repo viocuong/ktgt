@@ -32,9 +32,10 @@ def index(request):
             if tool == 'wavsteg':
                 sulfix = '_wavsteg.wav'
                 # os.system("/home/cuongnv/project/ktgt/ktgt_env/bin/python3")
-                os.system('export PYTHONPATH="/home/cuongnv/project/ktgt/ktgt_env/bin/python3"')
-                os.system('which python')
-                os.system('which python3')
+                # os.system('export PYTHONPATH="/home/cuongnv/project/ktgt/ktgt_env/bin/python3"')
+                # os.system('which python')
+                # os.system('which python3')
+                os.system('stegolsb --help')
                 # os.system("source ~/project/ktgt/ktgt_env/bin/activate")
                 # os.system(f"cd /home/cuongnv/project/ktgt/ktgt_env/bin & stegolsb wavsteg -h -i media/{fileName}.wav  -s media/message.txt -o media/{fileName}_wavsteg.wav -n 1")
                 # output = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
