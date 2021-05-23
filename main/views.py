@@ -5,10 +5,10 @@ from pathlib import Path
 from .forms import *
 import subprocess
 import time
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-import os
 # Create your views here.
 
 def home(request):
@@ -31,8 +31,8 @@ def index(request):
             f.close()
             if tool == 'wavsteg':
                 sulfix = '_wavsteg.wav'
-                os.system("which python")
-                # os.system(f"stegolsb wavsteg -h -i media/{fileName}.wav  -s media/message.txt -o media/{fileName}_wavsteg.wav -n 1")
+                # os.system("/home/cuongnv/project/ktgt/ktgt_env/bin/python3")
+                os.system(f"/home/cuongnv/project/ktgt/ktgt_env/bin/python3 stegolsb wavsteg -h -i media/{fileName}.wav  -s media/message.txt -o media/{fileName}_wavsteg.wav -n 1")
                 # output = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
                 url = f'/media/{fileName}_wavsteg.wav' 
             elif tool == 'mp3stego':
