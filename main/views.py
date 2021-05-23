@@ -37,7 +37,7 @@ def index(request):
                 # os.system('which python3')
                 # os.system('/home/cuongnv/project/ktgt/ktgt_env/bin/stegolsb --help')
                 # os.system("source ~/project/ktgt/ktgt_env/bin/activate")
-                os.system(f"/home/cuongnv/project/ktgt/ktgt_env/bin/stegolsb wavsteg -h -i /home/cuongnv/project/ktgt/media/{fileName}.wav  -s /home/cuongnv/project/ktgt/media/message.txt -o /home/cuongnv/project/ktgt/media/media/{fileName}_wavsteg.wav -n 1")
+                os.system(f"/home/cuongnv/project/ktgt/ktgt_env/bin/stegolsb wavsteg -h -i /home/cuongnv/project/ktgt/media/{fileName}.wav  -s /home/cuongnv/project/ktgt/media/message.txt -o /home/cuongnv/project/ktgt/media/{fileName}_wavsteg.wav -n 1")
                 # output = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
                 url = f'/media/{fileName}_wavsteg.wav' 
             elif tool == 'mp3stego':
