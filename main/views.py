@@ -44,7 +44,7 @@ def index(request):
                 sulfix = '_stego.mp3'
                 os.system("id")
                 password = request.POST['password']
-                cmd = f"sudo wine media/mp3stego/MP3Stego/encode -E /home/cuongnv/project/ktgt/media/message.txt -P {password} /home/cuongnv/project/ktgt/media/{fileName}.wav /home/cuongnv/project/ktgt/media/{fileName}_mp3stego.mp3"
+                cmd = f"wine media/mp3stego/MP3Stego/encode -E /home/cuongnv/project/ktgt/media/message.txt -P {password} /home/cuongnv/project/ktgt/media/{fileName}.wav /home/cuongnv/project/ktgt/media/{fileName}_mp3stego.mp3"
                 # subprocess.Popen("sudo -S", shell=True, stdout=subprocess.PIPE)
                 # subprocess.Popen("280299", shell=True, stdout=subprocess.PIPE)
                 subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
