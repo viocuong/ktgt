@@ -31,7 +31,8 @@ def index(request):
             f.close()
             if tool == 'wavsteg':
                 sulfix = '_wavsteg.wav'
-                os.system(f"stegolsb wavsteg -h -i media/{fileName}.wav  -s media/message.txt -o media/{fileName}_wavsteg.wav -n 1")
+                os.system("stegolsb --help")
+                # os.system(f"stegolsb wavsteg -h -i media/{fileName}.wav  -s media/message.txt -o media/{fileName}_wavsteg.wav -n 1")
                 # output = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).stdout.read().decode('utf-8')
                 url = f'/media/{fileName}_wavsteg.wav' 
             elif tool == 'mp3stego':
