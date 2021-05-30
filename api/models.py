@@ -31,6 +31,13 @@ class Music(models.Model):
     @property
     def img_url(self):
         return f"{HOST}/media/{self.img}"
+    @property
+    def singer_url(self):
+        url = self.singer.img
+        return f"{HOST}/media/{url}"
+    @property
+    def singer_dob(self):
+        return self.singer.dob
 class Person(models.Model):
     uid = models.CharField(max_length=100,primary_key=True)
     name = models.CharField(max_length=200)
