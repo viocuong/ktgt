@@ -52,7 +52,7 @@ def index(request):
                 url = f"/media/{fileName}_mp3stego.mp3"
                 # if "ERROR" in o:
                 #     return HttpResponse("File không đúng định dạng")
-            elif tool == 'stegono':
+            elif tool == 'stegano':
                 sulfix = '_stegano.wav'
                 os.system(f"stegano hide -i /home/cuongnv/project/ktgt/media/{fileName}.wav -d /home/cuongnv/project/ktgt/media/message.txt -o /home/cuongnv/project/ktgt/media/{fileName}_stegano.wav")
             f = open("media/message.txt", "r+")
