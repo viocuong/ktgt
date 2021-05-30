@@ -24,6 +24,10 @@
         $("#input_pass").html(inp);
         $("#warning").html("yêu cầu file định dạng wav, sample rate: 44100Hz, bit rate: 128")
     }
+    else if(v == 'stegano'){
+        $("#input_pass").html("");
+        $("#warning").html("yêu cầu file định dạng wav")
+    }
     else{
         $("#input_pass").html("");
         $("#warning").html("yêu cầu file định dạng wav")
@@ -35,6 +39,10 @@
             let inp = "<label>Mật khẩu</label><input type='password' name='password' placeholder='Nhập mật khẩu'>";
             $("#input_pass").html(inp);
             $("#warning").html("yêu cầu file định dạng wav, sample rate: 44100Hz, bit rate: 128")
+        }
+        else if(v == 'stegano'){
+            $("#input_pass").html("");
+            $("#warning").html("yêu cầu file định dạng wav")
         }
         else{
             $("#input_pass").html("");
