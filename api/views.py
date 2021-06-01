@@ -1,6 +1,6 @@
 from api.models import Music, Singer
 from os import error
-from api.serializers import MusicSerializer, RegisterSerializer
+from api.serializers import MusicSerializer, RegisterSerializer, SingerSerializer
 from django.shortcuts import render
 # from django.http import HttpResponse,JsonResponse,Http404
 from rest_framework.parsers import JSONParser
@@ -32,3 +32,9 @@ class Musics(APIView):
         serializer = MusicSerializer(music,many=True)
     
         return Response(serializer.data)
+class Singers(APIView):
+    def get(self, request):
+        singers = Singer.objects.all()
+        serializers = SingerSerializer(singers,many=True)
+        return Response(serializers.data)
+        

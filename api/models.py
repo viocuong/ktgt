@@ -9,6 +9,9 @@ class Singer(models.Model):
     dob = CharField(max_length=30, default='')
     def __str__(self):
         return f"{self.name} | {self.img.url} | {self.dob}"
+    @property
+    def img_url(self):
+        return f"{HOST}/media/{self.img}"
 class Category(models.Model):
     name = models.CharField(default="Nhạc trẻ",max_length=30)
 class Music(models.Model):
