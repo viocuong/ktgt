@@ -15,7 +15,6 @@ def singer(request):
     id = request.GET['id']
     singer = Singer.objects.filter(pk=id)[0]
     return HttpResponse(singer.name)
-
 class Register(APIView):
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
@@ -30,11 +29,15 @@ class Musics(APIView):
     def get(self, request):
         music = Music.objects.all()
         serializer = MusicSerializer(music,many=True)
-    
         return Response(serializer.data)
 class Singers(APIView):
     def get(self, request):
         singers = Singer.objects.all()
         serializers = SingerSerializer(singers,many=True)
         return Response(serializers.data)
-        
+class MusicBySinger(APIView):
+    def get(self, request):
+        singer = request.GET['name']
+        musics = Music.objects.filter(singer__name__exact=singer)
+        serializers = MusicSerializer(musics, many=True)
+        return Response(serializers.data)
