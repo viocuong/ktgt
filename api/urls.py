@@ -10,5 +10,6 @@ urlpatterns = [
     path('token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
     path('register',views.Register.as_view(),name='register'),
     path('musics',views.Musics.as_view(),name ='musics'),
-    path('singer',views.singer,name='singer')
+    path('singer',views.singer,name='singer'),
+    path('singers',views.Singers.as_view(),name='singers')
 ]
