@@ -11,5 +11,6 @@ urlpatterns = [
     path('register',views.Register.as_view(),name='register'),
     path('musics',views.Musics.as_view(),name ='musics'),
     path('singer',views.singer,name='singer'),
-    path('singers',views.Singers.as_view(),name='singers')
+    path('singers',views.Singers.as_view(),name='singers'),
+    path('musicbysinger',views.MusicBySinger.as_view(),name='musicbysinger')
 ]
