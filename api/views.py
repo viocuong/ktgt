@@ -37,7 +37,7 @@ class Singers(APIView):
         return Response(serializers.data)
 class MusicBySinger(APIView):
     def get(self, request):
-        singer = request.GET['name']
+        singer = request.data['name']
         musics = Music.objects.filter(singer__name__exact=singer)
         serializers = MusicSerializer(musics, many=True)
         return Response(serializers.data)
