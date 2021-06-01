@@ -61,3 +61,4 @@ class Follow(models.Model):
     person = models.ForeignKey(Person,on_delete=CASCADE)
     singer = models.ForeignKey(Singer,on_delete=CASCADE)
 
+
