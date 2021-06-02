@@ -11,6 +11,11 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from django.http import HttpResponse
+def search(request):
+    key = request.GET['key']
+    musics = Music.objects.filter(name__contains=key)
+    serializers = MusicSerializer(musics, many=True)
+    return Response(serializers.data)
 def singer(request):
     id = request.GET['id']
     singer = Singer.objects.filter(pk=id)[0]
@@ -50,6 +55,12 @@ class MusicBySinger(APIView):
         serializers = MusicSerializer(musics, many=True)
         return Response(serializers.data)
 class Search(APIView):
+    def get(self, request):
+        key = request.GET['key']
+        musics = Music.objects.filter(name__contains=key)
+        serializers = MusicSerializer(musics, many=True)
+        return Response(serializers.data)
+        
     def post(self, request):
         key = request.data['key']
         musics = Music.objects.filter(name__contains=key)
