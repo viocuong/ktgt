@@ -13,5 +13,8 @@ urlpatterns = [
     path('singer',views.singer,name='singer'),
     path('singers',views.Singers.as_view(),name='singers'),
     path('musicbysinger',views.MusicBySinger.as_view(),name='musicbysinger'),
-    path('search',views.Search.as_view(),name='saerch')
+    path('search',views.Search.as_view(),name='saerch'),
+    path('view', views.View.as_view(),name ='view'),
+    path('rankbyview',views.RankByView.as_view(),name='rankbyview')
+
 ]
