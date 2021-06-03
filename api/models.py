@@ -19,6 +19,7 @@ class Music(models.Model):
     category = models.ForeignKey(Category,on_delete=CASCADE,null=True)
     name = models.CharField(max_length=100)
     file = models.FileField()
+    view = models.IntegerField(default=0)
     img = models.FileField()
     def  __str__(self):
         return f"{self.name} | {self.file.url} | {self.img.url}"

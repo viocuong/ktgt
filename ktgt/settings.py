@@ -26,8 +26,6 @@ SECRET_KEY = 'a$kms11)p31sk*)vrwi2!ec#3tm&rp@!$!gk0x9sfg6x5jyv^2'
 DEBUG = True
 ALLOWED_HOSTS = ['cackythuatgiautinn5.xyz']
 # ALLOWED_HOSTS = ["192.168.1.10"]
-
-
 # Application definition
 INSTALLED_APPS = [
     'main',

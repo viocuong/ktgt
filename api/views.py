@@ -1,3 +1,4 @@
+from django.db.models import manager
 from api.models import Music, Singer
 from os import error
 from api.serializers import MusicSerializer, RegisterSerializer, SingerSerializer
@@ -10,7 +11,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.http import HttpResponse, response
 def search(request):
     key = request.GET['key']
     musics = Music.objects.filter(name__contains=key)
@@ -66,3 +67,19 @@ class Search(APIView):
         musics = Music.objects.filter(name__contains=key)
         serializers = MusicSerializer(musics, many=True)
         return Response(serializers.data)
+class View(APIView):
+    def post(self, request):
+        musicName = request.data['name']
+        musics = Music.objects.filter(name__contains=musicName)[0]
+        old_view = musics.view
+        musics.view = old_view+1
+        musics.save()
+        response = {
+            "resonse":musics.view
+        }
+        return Response(response)
+class RankByView(APIView):
+    def get(self, request):
+        musics = Music.objects.order_by('-view')
+        musicSerializes = MusicSerializer(musics, many=True)
+        return Response(musicSerializes.data)
