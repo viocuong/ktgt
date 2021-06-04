@@ -8,7 +8,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class MusicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
-        fields = ['singer_name','singer_url','singer_dob','category_name','name','file_url','img_url','view','favourite']
+        fields = ['singer_name','singer_url','singer_dob','category_name','name','file_url','img_url','view','num_favourite']
 class SingerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Singer
