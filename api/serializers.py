@@ -21,4 +21,3 @@ class FavouriteSerialize(serializers.ModelSerializer):
     class Meta:
         model = Favourite
         fields = ['person_uid','music_name']
-
