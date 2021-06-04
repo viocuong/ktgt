@@ -12,7 +12,7 @@ class MusicSerializer(serializers.ModelSerializer):
 class SingerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Singer
-        fields = ['name','img_url','dob']
+    fields = ['name','img_url','dob']
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
