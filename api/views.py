@@ -1,7 +1,7 @@
 from django.db.models import manager
 from api.models import Music, Singer
 from os import error
-from api.serializers import MusicSerializer, RegisterSerializer, SingerSerializer
+from api.serializers import FavouriteSerialize, MusicSerializer, RegisterSerializer, SingerSerializer
 from django.shortcuts import render
 # from django.http import HttpResponse,JsonResponse,Http404
 from rest_framework.parsers import JSONParser
@@ -83,3 +83,21 @@ class RankByView(APIView):
         musics = Music.objects.order_by('-view')
         musicSerializes = MusicSerializer(musics, many=True)
         return Response(musicSerializes.data)
+class Favourite(APIView):
+    def post(self, request):
+        person = request.data['person_uid']
+        music = request.data['music_name']
+        res = {"reponse":"đã thích"}
+        q = Favourite.objects.filter(person__name__exact=person, music__name_exact=music)
+        if q.count()==0:
+            music = Musics.objects.filter(uid=person)[0]
+            fav_old = music.favourite
+            music.favourite = fav_old+1
+            music.save()
+            serializers = FavouriteSerialize(data=request.data)
+            serializers.save()
+        return Response(res)
+
+
+
+

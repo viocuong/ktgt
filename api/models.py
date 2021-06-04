@@ -20,6 +20,7 @@ class Music(models.Model):
     name = models.CharField(max_length=100)
     file = models.FileField()
     view = models.IntegerField(default=0)
+    favourite = models.IntegerField(default=0)
     img = models.FileField()
     def  __str__(self):
         return f"{self.name} | {self.file.url} | {self.img.url}"
@@ -58,6 +59,12 @@ class Favourite(models.Model):
     person = models.ForeignKey(Person,on_delete=CASCADE)
     music = models.ForeignKey(Music,on_delete=CASCADE)
     num = models.IntegerField(default=0)
+    @property
+    def person_uid(self):
+        return f"{self.person.uid}"
+    @property
+    def music_name(self):
+        return f"{self.music.name}"
 class Follow(models.Model):
     person = models.ForeignKey(Person,on_delete=CASCADE)
     singer = models.ForeignKey(Singer,on_delete=CASCADE)

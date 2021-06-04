@@ -15,6 +15,7 @@ urlpatterns = [
     path('musicbysinger',views.MusicBySinger.as_view(),name='musicbysinger'),
     path('search',views.Search.as_view(),name='saerch'),
     path('view', views.View.as_view(),name ='view'),
-    path('rankbyview',views.RankByView.as_view(),name='rankbyview')
+    path('rankbyview',views.RankByView.as_view(),name='rankbyview'),
+    path('favourite',views.Favourite.as_view(),name='favourite')
 
 ]
