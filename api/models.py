@@ -20,7 +20,7 @@ class Music(models.Model):
     name = models.CharField(max_length=100)
     file = models.FileField()
     view = models.IntegerField(default=0)
-    favourite = models.IntegerField(default=0)
+    num_favourite = models.IntegerField(default=0)
     img = models.FileField()
     def  __str__(self):
         return f"{self.name} | {self.file.url} | {self.img.url}"

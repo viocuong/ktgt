@@ -91,8 +91,8 @@ class Favourite(APIView):
         q = Favourite.objects.filter(person__name__exact=person, music__name_exact=music)
         if q.count()==0:
             music = Musics.objects.filter(uid=person)[0]
-            fav_old = music.favourite
-            music.favourite = fav_old+1
+            fav_old = music.num_favourite
+            music.num_favourite = fav_old+1
             music.save()
             serializers = FavouriteSerialize(data=request.data)
             serializers.save()
